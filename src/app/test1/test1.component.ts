@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {Student} from '../student'
 @Component({
   selector: 'app-test1',
   templateUrl: './test1.component.html',
@@ -8,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class Test1Component implements OnInit {
 
   constructor() { }
-  public displayMessage:boolean=false;
-  public displayName:boolean=true;
+  public student=new Student(0,"",0,0,0);
 
   ngOnInit() {
   }
-
+  printInput(){
+    console.log(this.student)
+    console.log(this.student.computeTotal())
+  }
 }
