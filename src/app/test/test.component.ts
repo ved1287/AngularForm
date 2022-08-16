@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Person} from '../person'
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-test',
@@ -9,11 +9,19 @@ import {Person} from '../person'
 export class TestComponent implements OnInit {
 
   constructor() { }
-  public person=new Person(0,"",0.0,"");
+  //MODEL
+  public personForm=new FormGroup({
+    idControl:new FormControl(),
+    nameControl:new FormControl,
+    salaryControl:new FormControl(0.0),
+    gradeControl:new FormControl('A')
+
+  });
 
   ngOnInit() {
   }
-printInput(){
-  console.log(this.person)
-}
+  printInput(){
+    console.log(this.personForm.value)
+  }
+
 }
